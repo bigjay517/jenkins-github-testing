@@ -24,6 +24,11 @@ pipeline {
                 sh './main'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'ctest'
+            }
+        }
         stage('cat README') {
             when {
                 branch "fix-*"

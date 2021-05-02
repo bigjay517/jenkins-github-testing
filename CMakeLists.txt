@@ -4,6 +4,11 @@
 cmake_minimum_required (VERSION 3.14)
 project (JENKINS_GITHUB_TESTING)
 
+#Setup paths
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 # Add executable called "main" that is built from the source files
 add_executable (main main.cpp math_functions.cpp)
 
