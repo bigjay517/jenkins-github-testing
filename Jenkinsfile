@@ -15,16 +15,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '''
-                  make
-                '''
+                sh 'cmake .'
+                sh 'make'
             }
         }
         stage('Execute') {
             steps {
-                sh '''
-                  ./build/main.out
-                '''
+                sh './main'
             }
         }
         stage('cat README') {
@@ -32,9 +29,7 @@ pipeline {
                 branch "fix-*"
             }
             steps {
-                sh '''
-                  cat README.md
-                '''
+                sh 'cat README.md'
             }
         }
         stage ('for the PR') {
@@ -47,9 +42,7 @@ pipeline {
         }
         stage ('Clean') {
             steps {
-                sh '''
-                  make clean
-                '''
+                sh 'make clean'
             }
         }
     }
