@@ -20,7 +20,9 @@ pipeline {
         }
         stage('Execute') {
             steps {
-                ./build/main.out
+                sh '''
+                  ./build/main.out
+                '''
             }
         }
         stage('cat README') {
