@@ -13,6 +13,20 @@ pipeline {
                 echo "hello"
             }
         }
+        stage('Build') {
+            steps {
+                sh '''
+                  make
+                '''
+            }
+        }
+        stage('Execute') {
+            steps {
+                sh '''
+                  ./build/main.out
+                '''
+            }
+        }
         stage('cat README') {
             when {
                 branch "fix-*"
@@ -29,6 +43,13 @@ pipeline {
             }
             steps {
                 echo 'this only runs for the PRs'
+            }
+        }
+        stage ('Clean') {
+            steps {
+                sh '''
+                  make clean
+                '''
             }
         }
     }
