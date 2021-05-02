@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.14)
 project (JENKINS_GITHUB_TESTING)
 
 # Add executable called "main" that is built from the source files
-add_executable (main main)
+add_executable (main main.cpp math_functions.cpp)
 
 #GoogleTest features
 # GoogleTest requires at least C++11
@@ -19,3 +19,20 @@ FetchContent_Declare(
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
+
+
+#GoogleTests Enable
+enable_testing()
+
+add_executable(
+  hello_test
+  hello_test.cc
+  math_functions.cpp
+)
+target_link_libraries(
+  hello_test
+  gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(hello_test)
