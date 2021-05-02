@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Execute') {
             steps {
-                sh './main'
+                sh './bin/main'
             }
         }
         stage('Test') {
