@@ -15,7 +15,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                make
+                sh '''
+                  make
+                '''
             }
         }
         stage('Execute') {
@@ -45,7 +47,9 @@ pipeline {
         }
         stage ('Clean') {
             steps {
-                make clean
+                sh '''
+                  make clean
+                '''
             }
         }
     }
