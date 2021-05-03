@@ -10,7 +10,19 @@ TEST(HelloTest, BasicAssertions) {
 }
 
 TEST(Main, multi) {
-    EXPECT_EQ(4, multi(2, 2));
-    EXPECT_EQ(100, multi(50, 2));
-    EXPECT_EQ(24, multi(4, 6));
+  EXPECT_EQ(4, multi(2, 2));
+  EXPECT_EQ(100, multi(50, 2));
+  EXPECT_EQ(24, multi(4, 6));
+}
+
+TEST(Main, add) {
+  EXPECT_EQ(4, add(2, 2));
+  EXPECT_EQ(12, add(10, 2));
+  EXPECT_EQ(11, add(11, 0));
+}
+
+TEST(Main, sub) {
+  EXPECT_EQ(8, sub(16, 8));
+  EXPECT_EQ(20, sub(30, 10));
+  EXPECT_EQ(25, sub(30, 5));
 }
